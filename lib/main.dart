@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'section.dart';
+import 'MyAppBar.dart';
 
 void main() {
   runApp(PortfolioApp());
@@ -40,25 +41,17 @@ class _MainPageState extends State<MainPage> {
     super.initState();
   }
 
+  void changePage(Section section) {
+    setState(() {
+      _selectedSection = section;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(actions: <Widget>[
-        for (Section section in widget.sections)
-          Padding(
-            padding: new EdgeInsets.all(20.0),
-            child: TextButton(
-              onPressed: () {
-                setState(() {
-                  _selectedSection = section;
-                });
-              },
-              child: Text(section.name),
-              style: TextButton.styleFrom(primary: Colors.white),
-            ),
-          )
-      ]),
-      body: Center(child: Text(_selectedSection.name)),
+      appBar: MyAppBar(widget.sections, changePage),
+      body: Center(child: Text(_selectedSection.getName)),
     );
   }
 }

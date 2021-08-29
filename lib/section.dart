@@ -1,7 +1,11 @@
 export 'section.dart';
 
 class Section {
-  final String name;
+  final String _name;
 
-  Section(this.name);
+  Section(this._name);
+
+  String get getName {
+    return _name;
+  }
 }
