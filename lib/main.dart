@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'section.dart';
 import 'MyAppBar.dart';
+import 'MyDrawer.dart';
 
 void main() {
   runApp(PortfolioApp());
@@ -18,10 +19,10 @@ class PortfolioApp extends StatelessWidget {
 
 class MainPage extends StatefulWidget {
   final List<Section> sections = [
-    Section('Home'),
-    Section('Working Experience'),
-    Section('Education'),
-    Section('Certificates'),
+    Section('Home', Icons.home),
+    Section('Working Experience', Icons.work),
+    Section('Education', Icons.menu_book),
+    Section('Certificates', Icons.badge),
   ];
 
   MainPage({Key? key, sections}) : super(key: key);
@@ -50,8 +51,9 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(widget.sections, changePage),
+      appBar: MyAppBar(widget.sections, _selectedSection, changePage),
       body: Center(child: Text(_selectedSection.getName)),
+      drawer: MyDrawer(widget.sections, changePage),
     );
   }
 }
