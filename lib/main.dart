@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'section.dart';
 import 'MyAppBar.dart';
 import 'MyDrawer.dart';
+import 'MyHomePage.dart';
 
 void main() {
   runApp(PortfolioApp());
@@ -48,12 +50,21 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
+  Future<void> launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(widget.sections, _selectedSection, changePage),
-      body: Center(child: Text(_selectedSection.getName)),
+      body: MyHomePage(launchURL),
       drawer: MyDrawer(widget.sections, changePage),
+      backgroundColor: Colors.white,
     );
   }
 }
