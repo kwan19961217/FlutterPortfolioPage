@@ -29,7 +29,8 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
                         buttonAction(section);
                       },
                       child: Text(section.getName,
-                          style: TextStyle(fontFamily: 'Poppins')),
+                          style:
+                              TextStyle(fontFamily: 'Poppins', fontSize: 15)),
                       style: TextButton.styleFrom(
                         primary: Colors.cyan,
                       ),
@@ -44,7 +45,8 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         // Small device
         return AppBar(
           title: Text(current.getName,
-              style: TextStyle(color: Colors.cyan, fontFamily: 'Poppins')),
+              style: TextStyle(
+                  color: Colors.cyan, fontFamily: 'Poppins', fontSize: 22)),
           backgroundColor: Colors.white,
           iconTheme: IconThemeData(color: Colors.cyan),
           elevation: 0,

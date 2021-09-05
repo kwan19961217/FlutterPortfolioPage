@@ -20,7 +20,10 @@ class MyDrawer extends StatelessWidget {
               child: ListTile(
                 leading: Icon(section.getIcon, color: Colors.cyan),
                 title: Text(section.getName,
-                    style: const TextStyle(color: Colors.cyan)),
+                    style: const TextStyle(
+                        color: Colors.cyan,
+                        fontFamily: 'Poppins',
+                        fontSize: 19)),
                 onTap: () {
                   buttonAction(section);
                   Navigator.pop(context);
