@@ -30,7 +30,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
                       },
                       child: Text(section.getName,
                           style:
-                              TextStyle(fontFamily: 'Poppins', fontSize: 15)),
+                              TextStyle(fontFamily: 'Poppins', fontSize: 15.5)),
                       style: TextButton.styleFrom(
                         primary: Colors.cyan,
                       ),

@@ -12,12 +12,13 @@ class MyHomePage extends StatelessWidget {
         builder: (BuildContext context, BoxConstraints constraints) {
       return Container(
         margin: EdgeInsets.symmetric(
-            horizontal: constraints.maxWidth * 0.1,
-            vertical: constraints.maxHeight * 0.1),
+          horizontal: constraints.maxWidth * 0.1,
+        ),
         child: ListView(
           children: [
             Container(
-                margin: const EdgeInsets.symmetric(vertical: 7.0),
+                margin: EdgeInsets.only(
+                    top: constraints.maxHeight * 0.1, bottom: 7),
                 child: Text(
                   'Connor Kwan',
                   style: TextStyle(
