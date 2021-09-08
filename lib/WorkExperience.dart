@@ -1,8 +1,8 @@
-export 'WorkingExperience.dart';
+export 'WorkExperience.dart';
 import 'package:flutter/material.dart';
 import 'MyTimeLine.dart';
 
-class WorkingExperience extends StatelessWidget {
+class WorkExperience extends StatelessWidget {
   static const List<String> _times = ['July 2019', 'April 2020', 'May 2021'];
   static const List<String> _contents = [
     'Graduation',
@@ -12,9 +12,9 @@ class WorkingExperience extends StatelessWidget {
   static const List<String> _subtitle = [
     'The Chinese University of Hong Kong',
     '- Faster Payment System\n- FPS Merchant Payment Scheme\n- Account Number Checking\n- Notification Templates',
-    '- New Reports\n- Existing Reports Modifications\n- Internal UI\n- Bugs Fixing'
+    '- New Data Transfer Reports\n- Existing Reports Modifications\n- Internal UI\n- Bugs Fixing'
   ];
-  const WorkingExperience({Key? key}) : super(key: key);
+  const WorkExperience({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

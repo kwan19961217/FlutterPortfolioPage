@@ -70,7 +70,8 @@ class MyHomePage extends StatelessWidget {
                           child: Container(
                               color: Colors.cyan,
                               child: IconButton(
-                                icon: Image.asset('assets/icons/linkedin.png'),
+                                icon: Image.asset(
+                                    'assets/icons/linkedin_small.png'),
                                 iconSize: 32,
                                 onPressed: () => buttonAction(
                                     'https://www.linkedin.com/in/tsz-hong-kwan-4a6522194/'),

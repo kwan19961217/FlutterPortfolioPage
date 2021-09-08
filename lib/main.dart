@@ -4,7 +4,9 @@ import 'section.dart';
 import 'MyAppBar.dart';
 import 'MyDrawer.dart';
 import 'MyHomePage.dart';
-import 'WorkingExperience.dart';
+import 'WorkExperience.dart';
+import 'Education.dart';
+import 'Certificates.dart';
 
 void main() {
   runApp(PortfolioApp());
@@ -24,7 +26,7 @@ class MainPage extends StatefulWidget {
   final List<Section> sections = [
     Section('Home', Icons.home),
     Section(
-      'Working Experience',
+      'Work Experience',
       Icons.work,
     ),
     Section('Education', Icons.menu_book),
@@ -70,8 +72,12 @@ class _MainPageState extends State<MainPage> {
         switch (_selectedSection.getName) {
           case "Home":
             return MyHomePage(launchURL);
-          case "Working Experience":
-            return WorkingExperience();
+          case "Work Experience":
+            return WorkExperience();
+          case "Education":
+            return Education();
+          case "Certificates":
+            return Certificates();
         }
       }()),
       drawer: MyDrawer(widget.sections, changePage),
