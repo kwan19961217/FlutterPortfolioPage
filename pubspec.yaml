@@ -41,7 +41,7 @@ dev_dependencies:
 flutter:
   assets:
     - assets/icons/
-    - assets/icons/3.0x/
+    
   fonts:
     - family: Poppins
       fonts:

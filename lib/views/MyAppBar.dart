@@ -1,14 +1,12 @@
-export 'MyAppBar.dart';
-
 import 'package:flutter/material.dart';
-import 'section.dart';
+import 'package:portfolio/models/Sections.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final List<Section> sections;
   final Section current;
   final buttonAction;
 
-  MyAppBar(this.sections, this.current, this.buttonAction);
+  const MyAppBar({required this.current, this.buttonAction, Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +16,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       if (constraints.maxWidth > 800) {
         return AppBar(
           actions: <Widget>[
-            for (Section section in sections)
+            for (Section section in Sections.getSections)
               Padding(
                   padding: new EdgeInsets.symmetric(horizontal: 20.0),
                   child: SizedBox(

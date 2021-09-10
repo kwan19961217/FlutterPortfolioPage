@@ -1,20 +1,17 @@
-export 'MyDrawer.dart';
-
 import 'package:flutter/material.dart';
-import 'section.dart';
+import 'package:portfolio/models/Sections.dart';
 
 class MyDrawer extends StatelessWidget {
-  final List<Section> sections;
   final buttonAction;
 
-  const MyDrawer(this.sections, this.buttonAction);
+  const MyDrawer({required this.buttonAction, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
         child: ListView(
       children: [
-        for (Section section in sections)
+        for (Section section in Sections.getSections)
           Padding(
               padding: new EdgeInsets.all(15.0),
               child: ListTile(

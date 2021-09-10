@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'section.dart';
-import 'MyAppBar.dart';
-import 'MyDrawer.dart';
-import 'MyHomePage.dart';
-import 'WorkExperience.dart';
-import 'Education.dart';
-import 'Certificates.dart';
+import 'package:portfolio/models/Sections.dart';
+import 'package:portfolio/views/MyAppBar.dart';
+import 'package:portfolio/views/MyDrawer.dart';
+import 'package:portfolio/views/MyHomePage.dart';
+import 'package:portfolio/views/WorkExperience.dart';
+import 'package:portfolio/views/Education.dart';
+import 'package:portfolio/views/Certificates.dart';
 
 void main() {
   runApp(PortfolioApp());
@@ -23,16 +23,6 @@ class PortfolioApp extends StatelessWidget {
 }
 
 class MainPage extends StatefulWidget {
-  final List<Section> sections = [
-    Section('Home', Icons.home),
-    Section(
-      'Work Experience',
-      Icons.work,
-    ),
-    Section('Education', Icons.menu_book),
-    Section('Certificates', Icons.badge),
-  ];
-
   MainPage({Key? key, sections}) : super(key: key);
 
   @override
@@ -45,11 +35,12 @@ class _MainPageState extends State<MainPage> {
   @override
   void initState() {
     setState(() {
-      _selectedSection = widget.sections[0];
+      _selectedSection = Sections.getSections[0];
     });
     super.initState();
   }
 
+  //Utility Functions
   void changePage(Section section) {
     setState(() {
       _selectedSection = section;
@@ -63,15 +54,16 @@ class _MainPageState extends State<MainPage> {
       throw 'Could not launch $url';
     }
   }
+  //Functions end
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(widget.sections, _selectedSection, changePage),
+      appBar: MyAppBar(current: _selectedSection, buttonAction: changePage),
       body: (() {
         switch (_selectedSection.getName) {
           case "Home":
-            return MyHomePage(launchURL);
+            return MyHomePage(buttonAction: launchURL);
           case "Work Experience":
             return WorkExperience();
           case "Education":
@@ -80,7 +72,7 @@ class _MainPageState extends State<MainPage> {
             return Certificates();
         }
       }()),
-      drawer: MyDrawer(widget.sections, changePage),
+      drawer: MyDrawer(buttonAction: changePage),
       backgroundColor: Colors.white,
     );
   }

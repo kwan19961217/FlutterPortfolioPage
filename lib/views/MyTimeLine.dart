@@ -1,4 +1,3 @@
-export 'MyTimeLine.dart';
 import 'package:flutter/material.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
@@ -15,8 +14,8 @@ class MyTimeLine extends StatelessWidget {
       beforeLineStyle: LineStyle(color: Colors.cyan),
       afterLineStyle: LineStyle(color: Colors.cyan),
       indicatorStyle: const IndicatorStyle(color: Colors.cyan),
-      //_time if odd indexed
-      //else _content
+      //Show time in the left box if odd indexed
+      //else show content
       startChild: Container(
           alignment: Alignment.centerRight,
           constraints: const BoxConstraints(
@@ -42,8 +41,8 @@ class MyTimeLine extends StatelessWidget {
                       subtitle: Text(_subtitle,
                           style: TextStyle(fontFamily: 'Poppins'))))),
       alignment: TimelineAlign.center,
-      //_time if even indexed
-      //else _content
+      //Show time in the right box if even indexed
+      //else show content
       endChild: Container(
           alignment: Alignment.centerLeft,
           constraints: const BoxConstraints(minHeight: 150),

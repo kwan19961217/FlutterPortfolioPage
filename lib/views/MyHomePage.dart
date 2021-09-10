@@ -1,10 +1,10 @@
-export 'MyHomePage.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/models/UrlButtonModel.dart';
 
 class MyHomePage extends StatelessWidget {
   final buttonAction;
 
-  const MyHomePage(this.buttonAction);
+  const MyHomePage({required this.buttonAction, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +16,7 @@ class MyHomePage extends StatelessWidget {
         ),
         child: ListView(
           children: [
+            //Name
             Container(
                 margin: EdgeInsets.only(
                     top: constraints.maxHeight * 0.1, bottom: 7),
@@ -26,6 +27,8 @@ class MyHomePage extends StatelessWidget {
                       fontSize: 25,
                       fontFamily: 'Poppins'),
                 )),
+
+            //Title
             Container(
                 child: Text(
               'Developer',
@@ -34,6 +37,8 @@ class MyHomePage extends StatelessWidget {
                   color: Color(0xFF676767),
                   fontFamily: 'Poppins'),
             )),
+
+            //Description
             Container(
                 margin: EdgeInsets.symmetric(
                     vertical: constraints.maxHeight * 0.045),
@@ -42,6 +47,7 @@ class MyHomePage extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 18, color: Colors.grey, fontFamily: 'Poppins'),
                 )),
+
             Container(
                 margin: EdgeInsets.only(bottom: constraints.maxHeight * 0.05),
                 child: Text(
@@ -49,33 +55,25 @@ class MyHomePage extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 18, color: Colors.grey, fontFamily: 'Poppins'),
                 )),
+
+            //UrlButtons starts here
             Container(
                 margin: EdgeInsets.symmetric(
                     vertical: constraints.maxHeight * 0.05),
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: Container(
-                              color: Colors.cyan,
-                              child: IconButton(
-                                icon: Image.asset('assets/icons/github.png'),
-                                iconSize: 32,
-                                onPressed: () => buttonAction(
-                                    'https://github.com/kwan19961217'),
-                              ))),
-                      ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: Container(
-                              color: Colors.cyan,
-                              child: IconButton(
-                                icon: Image.asset(
-                                    'assets/icons/linkedin_small.png'),
-                                iconSize: 32,
-                                onPressed: () => buttonAction(
-                                    'https://www.linkedin.com/in/tsz-hong-kwan-4a6522194/'),
-                              )))
+                      for (int i = 0; i < UrlButtonModel.getUrls.length; i++)
+                        ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: Container(
+                                color: Colors.cyan,
+                                child: IconButton(
+                                  icon: Image.asset(UrlButtonModel.getIcons[i]),
+                                  iconSize: 32,
+                                  onPressed: () =>
+                                      buttonAction(UrlButtonModel.getUrls[i]),
+                                ))),
                     ])),
           ],
         ),

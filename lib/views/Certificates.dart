@@ -1,4 +1,3 @@
-export 'Certificates.dart';
 import 'package:flutter/material.dart';
 
 class Certificates extends StatelessWidget {
