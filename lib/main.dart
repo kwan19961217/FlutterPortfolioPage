@@ -69,7 +69,7 @@ class _MainPageState extends State<MainPage> {
           case "Education":
             return Education();
           case "Certificates":
-            return Certificates();
+            return Certificates(buttonAction: launchURL);
         }
       }()),
       drawer: MyDrawer(buttonAction: changePage),
